@@ -1,0 +1,88 @@
+html, body {
+  background: #ffffff;
+  margin: 0; }
+
+h1, h2, h3, h4, h5, p {
+  margin: 0; }
+
+header {
+  border-bottom: 2px solid #f2f2f2;
+  padding: 10px 20px;
+  color: #42bcf4; }
+  header h1 {
+    font-family: 'open_sanssemibold';
+    font-size: 2.0em; }
+    @media only screen and (max-width: 640px) {
+      header h1 {
+        font-size: 3.0em; } }
+
+#results {
+  overflow: auto;
+  width: 100vw;
+  list-style-type: none;
+  padding: 0; }
+  #results li {
+    margin: 10px 3vw;
+    padding: 0  2vw;
+    border-left: 5px solid black;
+    max-height: 100px;
+    overflow: hidden;
+    transition: all 1s linear; }
+    #results li:hover {
+      max-height: 100vh; }
+    @media only screen and (max-width: 640px) {
+      #results li {
+        border: none; } }
+    #results li .headline {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 10px; }
+      #results li .headline h2 {
+        font-size: 1.5em; }
+        @media only screen and (max-width: 640px) {
+          #results li .headline h2 {
+            font-size: 2.0em; } }
+      #results li .headline .title {
+        font-family: 'open_sansregular'; }
+        #results li .headline .title .b {
+          font-family: "open_sansbold"; }
+      #results li .headline .date {
+        font-family: 'open_sanslight';
+        color: #666666; }
+    #results li .opinions {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start; }
+      #results li .opinions .opinion {
+        max-width: 40vw;
+        margin-right: 2vw; }
+      #results li .opinions .source {
+        margin: 0 1vw;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
+        #results li .opinions .source div {
+          display: table;
+          width: calc(100% - 50px);
+          min-height: 50px; }
+      #results li .opinions img {
+        height: 50px;
+        width: 50px; }
+      #results li .opinions .quote {
+        word-wrap: break-word;
+        display: table-cell;
+        vertical-align: middle;
+        font-size: 1.3em;
+        padding: 0 1vw;
+        font-family: "open_sanslight_italic"; }
+        @media only screen and (max-width: 640px) {
+          #results li .opinions .quote {
+            font-size: 1.5em; } }
+      #results li .opinions p, #results li .opinions a {
+        display: none; }
+
+/*# sourceMappingURL=style.css.map */
