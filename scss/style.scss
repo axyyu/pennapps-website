@@ -8,7 +8,7 @@ $positive: #25db5e;
 $negative:#db2552;
 
 html,body {
-    background: $background-color;
+    background: lighten($primary-color,30%);
     margin:0;
 }
 
@@ -24,10 +24,17 @@ h1,h2,h3,h4,h5,p{
 
 
 header{
-    display:none;
+    text-align: center;
+    position: fixed;
+    width: calc(100vw - 40px);
+    top: 0px;
+    display:flex;
+    justify-content: space-between;
+    background: $background-color;
     border-bottom: 2px solid  darken($background-color,5%);
     padding: 10px 20px;
     a{
+        color: $primary-color !important;
         text-decoration:none;
     }
     h1{
@@ -39,25 +46,32 @@ header{
         }
         text-decoration: none;
     }
+    .header-buttons{
+        font-family:'open_sanslight';
+        display: flex;
+        flex-direction: row;
+        line-height: 44px;
+        font-size: 1.5em;
+    }
+    .header-button{
+        margin: 0 10px;
+    }
 }
 #results{
+    margin-top: 70px;
     display:none;
     overflow: auto;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     list-style-type: none;
     padding: 0;
 
     li{
-        margin: 10px 3vw;
-        padding: 0  2vw;
-        border-left: 5px solid black;
-        max-height: 100px;
+        margin: 20px 20px;
+        padding: 2vh  2vw;
         overflow: hidden;
-        transition:all 1s linear;
-
-        &:hover{
-            max-height: 100vh;
-        }
+        background: $background-color;
+        border-radius: 5px;
 
         @include respond-to("mobile"){
             border: none;
@@ -71,25 +85,15 @@ header{
             margin-bottom:10px;
 
             h2{
-                font-size: 1.5em;
+                font-size: 1.6em;
                 @include respond-to("mobile"){
                     font-size:2.0em;
                 }
             }
             .title{
-                font-family:'open_sansregular';
-                .n{
-                     font-family:"open_sansbold";
-                }
-                .o{
-                    font-family:"open_sansbold";
-                }
-                }
+                font-family:'open_sansbold';
             }
-            .tag{
-                font-family:'open_sanslight';
-                color: lighten(black, 40%);
-            }
+        }
         
         .opinions{
             display:flex;
@@ -97,13 +101,11 @@ header{
             flex-wrap:wrap;
             justify-content:flex-start;
 
-            .opinion{
-                max-width: 40vw;
-                margin-right: 2vw;
-            }
-            
             .source{
                 margin: 0 1vw;
+                width: 40vw;
+                margin-right: 2vw;
+                margin-bottom: 1vh;
                 display:flex;
                 flex-direction:row;
                 flex-wrap:wrap;
@@ -118,20 +120,17 @@ header{
                height:50px;
                width:50px;
             }
-            .quote{
+            .title{
                 word-wrap:break-word;
                 display: table-cell;
                 vertical-align: middle;
                 font-size:1.3em;
                 padding:0 1vw;
-                font-family:"open_sanslight_italic";
+                font-family:"open_sansregular";
                 @include respond-to("mobile"){
                     font-size:1.5em;
                 }
 
-            }
-            p,a{
-                display:none;
             }
         }
 
@@ -139,115 +138,4 @@ header{
             cursor:pointer;
         }
     }
-}
-
-#tagline{
-    display:none;
-    padding:0 2vw;
-    .title{
-        display:inline-block;
-        margin: 10px 0;
-        
-        font-size: 2.0em;
-        font-family: "open_sansregular";
-        .n{
-                     font-family:"open_sansbold";
-                }
-                .o{
-                    font-family:"open_sansbold";
-                }
-    }
-    .opinions{
-            display:flex;
-            flex-direction:row;
-            flex-wrap:wrap;
-            justify-content:flex-start;
-            max-width: 80vw;
-            margin-right: 2vw;
-
-            .source{
-                margin: 0 1vw;
-                .source-header{
-                display:flex;
-                flex-direction:row;
-                flex-wrap:wrap;
-                justify-content:flex-start;
-                div{
-                    display:table;
-                    width: calc(100% - 100px);
-                    min-height: 100px;
-                }
-            }
-
-            }
-            img{
-               height:100px;
-               width:100px;
-            }
-            .quote{
-                word-wrap:break-word;
-                display: table-cell;
-                vertical-align: middle;
-
-                font-size:1.3em;
-                padding:0 1vw;
-                font-family:"open_sanslight_italic";
-                @include respond-to("mobile"){
-                    font-size:1.5em;
-                }
-
-            }
-            .summary{
-                font-size:1.0em;
-                margin: 10px 0;
-                font-family:"open_sanslight";
-                @include respond-to("mobile"){
-                    font-size:0.8em;
-                }
-
-            }
-            .sent-lists{
-                display:flex;
-                flex-direction:row;
-                flex-wrap:wrap;
-                justify-content:space-around;
-                .positive{
-                    color:$positive;
-                }
-                .neutral{
-                    color:$primary-color;
-                }
-                .negative{
-                    color:$negative;
-                }
-            .sent-list{
-                padding:0;
-                list-style-type:none;
-                margin:0;
-                li{
-                    display:flex;
-                    flex-direction:row;
-                    justify-content:center;
-                    margin: 10px 0;
-
-                    img{
-                        height:30px;
-                        width:30px;
-                    }
-                    h4{
-                        margin: 0 10px;
-                        font-family:"open_sansregular";
-                        font-size:1.5em;
-
-                        @include respond-to("mobile"){
-                        font-size:1.0em;
-                }
-
-                    }
-                }
-                    
-            }
-        }
-        }
-
 }

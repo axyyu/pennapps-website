@@ -1,15 +1,22 @@
 html, body {
-  background: #ffffff;
+  background: #d3effc;
   margin: 0; }
 
 h1, h2, h3, h4, h5, p {
   margin: 0; }
 
 header {
-  display: none;
+  text-align: center;
+  position: fixed;
+  width: calc(100vw - 40px);
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
   border-bottom: 2px solid #f2f2f2;
   padding: 10px 20px; }
   header a {
+    color: #42bcf4 !important;
     text-decoration: none; }
   header h1 {
     color: #42bcf4;
@@ -19,162 +26,77 @@ header {
     @media only screen and (max-width: 640px) {
       header h1 {
         font-size: 3.0em; } }
+  header .header-buttons {
+    font-family: 'open_sanslight';
+    display: flex;
+    flex-direction: row;
+    line-height: 44px;
+    font-size: 1.5em; }
+  header .header-button {
+    margin: 0 10px; }
 
-#wrapper .results {
-  display: block;
+#results {
+  margin-top: 70px;
+  display: none;
   overflow: auto;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   list-style-type: none;
   padding: 0; }
-  #wrapper .results li {
-    margin: 10px 3vw;
-    padding: 0  2vw;
-    border-left: 5px solid black;
-    max-height: 100px;
+  #results li {
+    margin: 20px 20px;
+    padding: 2vh  2vw;
     overflow: hidden;
-    transition: all 1s linear; }
-    #wrapper .results li:hover {
-      max-height: 100vh; }
+    background: #ffffff;
+    border-radius: 5px; }
     @media only screen and (max-width: 640px) {
-      #wrapper .results li {
+      #results li {
         border: none; } }
-    #wrapper .results li .headline {
+    #results li .headline {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 10px; }
-      #wrapper .results li .headline h2 {
-        font-size: 1.5em; }
+      #results li .headline h2 {
+        font-size: 1.6em; }
         @media only screen and (max-width: 640px) {
-          #wrapper .results li .headline h2 {
+          #results li .headline h2 {
             font-size: 2.0em; } }
-      #wrapper .results li .headline .title {
-        font-family: 'open_sansregular'; }
-        #wrapper .results li .headline .title .n {
-          font-family: "open_sansbold"; }
-        #wrapper .results li .headline .title .o {
-          font-family: "open_sansbold"; }
-    #wrapper .results li .tag {
-      font-family: 'open_sanslight';
-      color: #wrapper .666666; }
-    #wrapper .results li .opinions {
+      #results li .headline .title {
+        font-family: 'open_sansbold'; }
+    #results li .opinions {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start; }
-      #wrapper .results li .opinions .opinion {
-        max-width: 40vw;
-        margin-right: 2vw; }
-      #wrapper .results li .opinions .source {
+      #results li .opinions .source {
         margin: 0 1vw;
+        width: 40vw;
+        margin-right: 2vw;
+        margin-bottom: 1vh;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        #wrapper .results li .opinions .source div {
+        #results li .opinions .source div {
           display: table;
           width: calc(100% - 50px);
           min-height: 50px; }
-      #wrapper .results li .opinions img {
+      #results li .opinions img {
         height: 50px;
         width: 50px; }
-      #wrapper .results li .opinions .quote {
+      #results li .opinions .title {
         word-wrap: break-word;
         display: table-cell;
         vertical-align: middle;
         font-size: 1.3em;
         padding: 0 1vw;
-        font-family: "open_sanslight_italic"; }
+        font-family: "open_sansregular"; }
         @media only screen and (max-width: 640px) {
-          #wrapper .results li .opinions .quote {
+          #results li .opinions .title {
             font-size: 1.5em; } }
-      #wrapper .results li .opinions p, #wrapper .results li .opinions a {
-        display: none; }
-    #wrapper .results li:hover {
+    #results li:hover {
       cursor: pointer; }
-
-#wrapper .tagline {
-  display: block;
-  padding: 0 2vw; }
-  #wrapper .tagline .title {
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 2.0em;
-    font-family: "open_sansregular"; }
-    #wrapper .tagline .title .n {
-      font-family: "open_sansbold"; }
-    #wrapper .tagline .title .o {
-      font-family: "open_sansbold"; }
-  #wrapper .tagline .opinions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start; }
-    #wrapper .tagline .opinions .opinion {
-      max-width: 40vw;
-      margin-right: 2vw; }
-    #wrapper .tagline .opinions .source {
-      margin: 0 1vw; }
-      #wrapper .tagline .opinions .source .source-header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; }
-        #wrapper .tagline .opinions .source .source-header div {
-          display: table;
-          width: calc(100% - 100px);
-          min-height: 100px; }
-    #wrapper .tagline .opinions img {
-      height: 100px;
-      width: 100px; }
-    #wrapper .tagline .opinions .quote {
-      word-wrap: break-word;
-      display: table-cell;
-      vertical-align: middle;
-      font-size: 1.3em;
-      padding: 0 1vw;
-      font-family: "open_sanslight_italic"; }
-      @media only screen and (max-width: 640px) {
-        #wrapper .tagline .opinions .quote {
-          font-size: 1.5em; } }
-    #wrapper .tagline .opinions .summary {
-      font-size: 1.0em;
-      margin: 10px 0;
-      font-family: "open_sanslight"; }
-      @media only screen and (max-width: 640px) {
-        #wrapper .tagline .opinions .summary {
-          font-size: 0.8em; } }
-    #wrapper .tagline .opinions .sent-lists {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around; }
-      #wrapper .tagline .opinions .sent-lists .positive {
-        color: #wrapper .25db5e; }
-      #wrapper .tagline .opinions .sent-lists .neutral {
-        color: #wrapper .42bcf4; }
-      #wrapper .tagline .opinions .sent-lists .negative {
-        color: #wrapper .db2552; }
-      #wrapper .tagline .opinions .sent-lists .sent-list {
-        padding: 0;
-        list-style-type: none;
-        margin: 0; }
-        #wrapper .tagline .opinions .sent-lists .sent-list li {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          margin: 10px 0; }
-          #wrapper .tagline .opinions .sent-lists .sent-list li img {
-            height: 30px;
-            width: 30px; }
-          #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
-            margin: 0 10px;
-            font-family: "open_sansregular";
-            font-size: 1.5em; }
-            @media only screen and (max-width: 640px) {
-              #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
-                font-size: 1.0em; }             }
-
 
 /*# sourceMappingURL=style.css.map */

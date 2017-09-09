@@ -19,23 +19,29 @@ function retrieveData(){
 	var database = firebase.database();
 	var topRef = database.ref('topics');
 	topRef.once('value', function(snapshot){
+		var r = $("#results");
 		snapshot.forEach(function(child){
 			var str = "";
 			str+='<li class="result" onclick="openTagline(this)"><div class="headline"><h2 class="title">';
-			str+=child.key;
+			str+=child.key+'</h2>';
 			str+='</div><div class="opinions">';
 			child.forEach(function(article){
 				str+='<div class="opinion">'
 				str+='<div class="source">';
-				str+='<img src="'+pictionary[article.child("source").val()]+'"/>';
-				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
+				var imgsrc = pictionary[article.child("source").val()];
+				if(imgsrc == null){
+					imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
+				}
+				str+='<img src="'+imgsrc+'"/>';
+				str+='<div><h3 class="title">'+article.child("title").val()+'</h3></div></div>';
 			});
 	        str+='</div></li>';
-	        $(".results").append($(str));
+	        r.append($(str));
         });
+        
 	});
 	retrieveDataAni();
 }
 function openTagline(v){
-	window.location = "tagline.html?tag=" + $(v).find(".title").text();;
+	//window.location = "tagline.html?tag="+$(v).find(".title").text();
 }

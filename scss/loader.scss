@@ -15,12 +15,12 @@ $background-color: #ffffff;
 .loading {
     display:none;
     margin: 0 auto;
-    margin-top:30vh;
+    margin-top:40vh;
     border-radius: 50%;
     width: $base-line-height;
     height: $base-line-height;
     border: .5rem solid $primary-color;
-    border-top-color: $background-color;
+    border-top-color: rgba(0,0,0,0);
     animation: spin $spin-duration infinite linear;
   &--double {
     border-style: double;
