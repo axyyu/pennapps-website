@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		
+	</title>
+</head>
+<body>
+
+<script>
+function search(query){
+	var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            populate(JSON.parse(xmlHttp.responseText));
+        }
+    }
+    xmlHttp.open("GET", "https://debriefserver.cutlass21.hasura-app.io/search?q="+query, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+function populate(data){
+
+}
+</script>
+</body>
+</html>
