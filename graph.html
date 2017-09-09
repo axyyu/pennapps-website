@@ -2,10 +2,24 @@
 <html>
 <head>
 	<title></title>
+	<meta charset="utf-8" />
+    <title>debrief</title>
+
+    <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
+    <script src="js/animations.js" defer></script>
+    <script src="js/scripts.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="hover-min.css">
 </head>
 <body style="margin:0;">
 <center>
+	<br/>
+	<h1 id="entity"></h1>
 	<div style="width:100%; height:100px; margin-top:100px;" id="graph">
 		<div id="line" style="position:relative;top:45px;left:0;right:0;width:100%;height:10px;background-color:#FF0000;border-radius:5px;background: linear-gradient(to right, red , yellow, green);"></div>
 	</div>
@@ -29,7 +43,12 @@
 	if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
 		return decodeURIComponent(name[1]);
 	}
-	get(topic)
+	document.getElementById("entity").innerHTML = get("entity");
+	get(topic);
+	firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
+	var database = firebase.database();
+	var topRef = database.ref('topics');
+
 </script>
 </body>
 </html>
