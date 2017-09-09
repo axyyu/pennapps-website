@@ -6,7 +6,7 @@ h1, h2, h3, h4, h5, p {
   margin: 0; }
 
 header {
-  display: none;
+  display: flex;
   border-bottom: 2px solid #f2f2f2;
   padding: 10px 20px; }
   header a {
@@ -20,66 +20,65 @@ header {
       header h1 {
         font-size: 3.0em; } }
 
-#wrapper .results {
-  display: block;
+#results {
+  display: none;
   overflow: auto;
   width: 100vw;
   list-style-type: none;
   padding: 0; }
-  #wrapper .results li {
+  #results li {
     margin: 10px 3vw;
     padding: 0  2vw;
     border-left: 5px solid black;
     max-height: 100px;
     overflow: hidden;
     transition: all 1s linear; }
-    #wrapper .results li:hover {
+    #results li:hover {
       max-height: 100vh; }
     @media only screen and (max-width: 640px) {
-      #wrapper .results li {
+      #results li {
         border: none; } }
-    #wrapper .results li .headline {
+    #results li .headline {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 10px; }
-      #wrapper .results li .headline h2 {
+      #results li .headline h2 {
         font-size: 1.5em; }
         @media only screen and (max-width: 640px) {
-          #wrapper .results li .headline h2 {
+          #results li .headline h2 {
             font-size: 2.0em; } }
-      #wrapper .results li .headline .title {
+      #results li .headline .title {
         font-family: 'open_sansregular'; }
-        #wrapper .results li .headline .title .n {
+        #results li .headline .title .n {
           font-family: "open_sansbold"; }
-        #wrapper .results li .headline .title .o {
+        #results li .headline .title .o {
           font-family: "open_sansbold"; }
-    #wrapper .results li .tag {
+    #results li .tag {
       font-family: 'open_sanslight';
-      color: #wrapper .666666; }
-    #wrapper .results li .opinions {
+      color: #666666; }
+    #results li .opinions {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start; }
-      #wrapper .results li .opinions .opinion {
-        max-width: 40vw;
-        margin-right: 2vw; }
-      #wrapper .results li .opinions .source {
+      #results li .opinions .source {
         margin: 0 1vw;
+        width: 40vw;
+        margin-right: 2vw;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        #wrapper .results li .opinions .source div {
+        #results li .opinions .source div {
           display: table;
           width: calc(100% - 50px);
           min-height: 50px; }
-      #wrapper .results li .opinions img {
+      #results li .opinions img {
         height: 50px;
         width: 50px; }
-      #wrapper .results li .opinions .quote {
+      #results li .opinions .quote {
         word-wrap: break-word;
         display: table-cell;
         vertical-align: middle;
@@ -87,94 +86,11 @@ header {
         padding: 0 1vw;
         font-family: "open_sanslight_italic"; }
         @media only screen and (max-width: 640px) {
-          #wrapper .results li .opinions .quote {
+          #results li .opinions .quote {
             font-size: 1.5em; } }
-      #wrapper .results li .opinions p, #wrapper .results li .opinions a {
+      #results li .opinions p, #results li .opinions a {
         display: none; }
-    #wrapper .results li:hover {
+    #results li:hover {
       cursor: pointer; }
-
-#wrapper .tagline {
-  display: block;
-  padding: 0 2vw; }
-  #wrapper .tagline .title {
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 2.0em;
-    font-family: "open_sansregular"; }
-    #wrapper .tagline .title .n {
-      font-family: "open_sansbold"; }
-    #wrapper .tagline .title .o {
-      font-family: "open_sansbold"; }
-  #wrapper .tagline .opinions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start; }
-    #wrapper .tagline .opinions .opinion {
-      max-width: 40vw;
-      margin-right: 2vw; }
-    #wrapper .tagline .opinions .source {
-      margin: 0 1vw; }
-      #wrapper .tagline .opinions .source .source-header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; }
-        #wrapper .tagline .opinions .source .source-header div {
-          display: table;
-          width: calc(100% - 100px);
-          min-height: 100px; }
-    #wrapper .tagline .opinions img {
-      height: 100px;
-      width: 100px; }
-    #wrapper .tagline .opinions .quote {
-      word-wrap: break-word;
-      display: table-cell;
-      vertical-align: middle;
-      font-size: 1.3em;
-      padding: 0 1vw;
-      font-family: "open_sanslight_italic"; }
-      @media only screen and (max-width: 640px) {
-        #wrapper .tagline .opinions .quote {
-          font-size: 1.5em; } }
-    #wrapper .tagline .opinions .summary {
-      font-size: 1.0em;
-      margin: 10px 0;
-      font-family: "open_sanslight"; }
-      @media only screen and (max-width: 640px) {
-        #wrapper .tagline .opinions .summary {
-          font-size: 0.8em; } }
-    #wrapper .tagline .opinions .sent-lists {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around; }
-      #wrapper .tagline .opinions .sent-lists .positive {
-        color: #wrapper .25db5e; }
-      #wrapper .tagline .opinions .sent-lists .neutral {
-        color: #wrapper .42bcf4; }
-      #wrapper .tagline .opinions .sent-lists .negative {
-        color: #wrapper .db2552; }
-      #wrapper .tagline .opinions .sent-lists .sent-list {
-        padding: 0;
-        list-style-type: none;
-        margin: 0; }
-        #wrapper .tagline .opinions .sent-lists .sent-list li {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          margin: 10px 0; }
-          #wrapper .tagline .opinions .sent-lists .sent-list li img {
-            height: 30px;
-            width: 30px; }
-          #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
-            margin: 0 10px;
-            font-family: "open_sansregular";
-            font-size: 1.5em; }
-            @media only screen and (max-width: 640px) {
-              #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
-                font-size: 1.0em; }             }
-
 
 /*# sourceMappingURL=style.css.map */

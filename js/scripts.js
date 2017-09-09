@@ -19,6 +19,7 @@ function retrieveData(){
 	var database = firebase.database();
 	var topRef = database.ref('topics');
 	topRef.once('value', function(snapshot){
+		var r = $("#results");
 		snapshot.forEach(function(child){
 			var str = "";
 			str+='<li class="result" onclick="openTagline(this)"><div class="headline"><h2 class="title">';
@@ -30,11 +31,12 @@ function retrieveData(){
 				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
 			});
 	        str+='</div></li>';
-	        $(".results").append($(str));
+	        r.append($(str));
         });
+        
 	});
 	retrieveDataAni();
 }
 function openTagline(v){
-	window.location = "tagline.html?tag=" + $(v).find(".title").text();;
+	//window.location = "tagline.html?tag="+$(v).find(".title").text();
 }
