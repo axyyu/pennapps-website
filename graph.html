@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="hover-min.css">
+</head>
+<body style="margin:0;">
+<center>
+	<div style="width:100%; height:100px; margin-top:100px;" id="graph">
+		<div id="line" style="position:relative;top:45px;left:0;right:0;width:100%;height:10px;background-color:#FF0000;border-radius:5px;background: linear-gradient(to right, red , yellow, green);"></div>
+	</div>
+</center>
+<script>
+	function addSource(percentage, pictureUrl){
+		document.getElementById("graph");
+		var element = document.createElement('IMG');
+		element.src = pictureUrl;
+		element.className = "hvr-bob";
+		element.style.width = "50px";
+		element.style.height = "50px";
+		element.style.position = "absolute";
+		element.style.marginTop = "15px";
+		element.style.borderRadius = "25px";
+		element.style.left = "calc("+percentage.toString()+"% - 25px)";
+		element.style.right = "calc("+percentage.toString()+"% - 25px)";
+		document.getElementById('graph').appendChild(element);
+	}
+	function get(name){
+	if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
+		return decodeURIComponent(name[1]);
+	}
+	get(topic)
+</script>
+</body>
+</html>
