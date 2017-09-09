@@ -162,11 +162,8 @@ header{
             flex-direction:row;
             flex-wrap:wrap;
             justify-content:flex-start;
-
-            .opinion{
-                max-width: 40vw;
-                margin-right: 2vw;
-            }
+            max-width: 80vw;
+            margin-right: 2vw;
 
             .source{
                 margin: 0 1vw;
