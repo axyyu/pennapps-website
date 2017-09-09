@@ -25,6 +25,16 @@
 	</div>
 </center>
 <script>
+	var pictionary = {
+		"CBS":"img/cbs.png",
+		"MSNBC":"img/msnbc.png",
+		"Breitbart":"img/bb.png",
+		"Fox+News":"img/fox.png",
+		"ABC":"img/abc.png",
+		"CNN":"img/cnn.png",
+		"NPR":"img/npr.png",
+		"Huffington+Post+US":"img/huffpost.png"
+	}
 	function addSource(percentage, pictureUrl){
 		document.getElementById("graph");
 		var element = document.createElement('IMG');
@@ -43,11 +53,10 @@
 	if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
 		return decodeURIComponent(name[1]);
 	}
-	document.getElementById("entity").innerHTML = get("entity");
 	get(topic);
 	firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
 	var database = firebase.database();
-	var topRef = database.ref('topics');
+	var ref = database.ref('topics/'+get(topic));
 
 </script>
 </body>
