@@ -1,0 +1,20 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+.loading {
+  display: none;
+  margin: 0 auto;
+  margin-top: 30vh;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  border: 0.5rem solid #42bcf4;
+  border-top-color: #ffffff;
+  animation: spin 2s infinite linear; }
+  .loading--double {
+    border-style: double;
+    border-width: .5rem; }
+
+/*# sourceMappingURL=loader.css.map */

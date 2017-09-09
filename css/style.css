@@ -6,17 +6,22 @@ h1, h2, h3, h4, h5, p {
   margin: 0; }
 
 header {
+  display: none;
   border-bottom: 2px solid #f2f2f2;
-  padding: 10px 20px;
-  color: #42bcf4; }
+  padding: 10px 20px; }
+  header a {
+    text-decoration: none; }
   header h1 {
+    color: #42bcf4;
     font-family: 'open_sanssemibold';
-    font-size: 2.0em; }
+    font-size: 2.0em;
+    text-decoration: none; }
     @media only screen and (max-width: 640px) {
       header h1 {
         font-size: 3.0em; } }
 
 #results {
+  display: none;
   overflow: auto;
   width: 100vw;
   list-style-type: none;
@@ -46,11 +51,13 @@ header {
             font-size: 2.0em; } }
       #results li .headline .title {
         font-family: 'open_sansregular'; }
-        #results li .headline .title .b {
+        #results li .headline .title .n {
           font-family: "open_sansbold"; }
-      #results li .headline .date {
-        font-family: 'open_sanslight';
-        color: #666666; }
+        #results li .headline .title .o {
+          font-family: "open_sansbold"; }
+    #results li .tag {
+      font-family: 'open_sanslight';
+      color: #666666; }
     #results li .opinions {
       display: flex;
       flex-direction: row;
@@ -84,5 +91,89 @@ header {
             font-size: 1.5em; } }
       #results li .opinions p, #results li .opinions a {
         display: none; }
+    #results li:hover {
+      cursor: pointer; }
+
+#tagline {
+  display: none;
+  padding: 0 2vw; }
+  #tagline .title {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 2.0em;
+    font-family: "open_sansregular"; }
+    #tagline .title .n {
+      font-family: "open_sansbold"; }
+    #tagline .title .o {
+      font-family: "open_sansbold"; }
+  #tagline .opinions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    #tagline .opinions .opinion {
+      max-width: 40vw;
+      margin-right: 2vw; }
+    #tagline .opinions .source {
+      margin: 0 1vw; }
+      #tagline .opinions .source .source-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
+        #tagline .opinions .source .source-header div {
+          display: table;
+          width: calc(100% - 100px);
+          min-height: 100px; }
+    #tagline .opinions img {
+      height: 100px;
+      width: 100px; }
+    #tagline .opinions .quote {
+      word-wrap: break-word;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 1.3em;
+      padding: 0 1vw;
+      font-family: "open_sanslight_italic"; }
+      @media only screen and (max-width: 640px) {
+        #tagline .opinions .quote {
+          font-size: 1.5em; } }
+    #tagline .opinions .summary {
+      font-size: 1.0em;
+      margin: 10px 0;
+      font-family: "open_sanslight"; }
+      @media only screen and (max-width: 640px) {
+        #tagline .opinions .summary {
+          font-size: 0.8em; } }
+    #tagline .opinions .sent-lists {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      #tagline .opinions .sent-lists .positive {
+        color: #25db5e; }
+      #tagline .opinions .sent-lists .neutral {
+        color: #42bcf4; }
+      #tagline .opinions .sent-lists .negative {
+        color: #db2552; }
+      #tagline .opinions .sent-lists .sent-list {
+        padding: 0;
+        list-style-type: none;
+        margin: 0; }
+        #tagline .opinions .sent-lists .sent-list li {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin: 10px 0; }
+          #tagline .opinions .sent-lists .sent-list li img {
+            height: 30px;
+            width: 30px; }
+          #tagline .opinions .sent-lists .sent-list li h4 {
+            margin: 0 10px;
+            font-family: "open_sansregular";
+            font-size: 1.5em; }
+            @media only screen and (max-width: 640px) {
+              #tagline .opinions .sent-lists .sent-list li h4 {
+                font-size: 1.0em; } }
 
 /*# sourceMappingURL=style.css.map */
