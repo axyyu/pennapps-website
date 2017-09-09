@@ -78,5 +78,23 @@
                                                                         </div>
                </div>
         </div>
+        <div>
+            25%
+        </div>
+        <script>
+            function percentToColor(percent){
+                var red = 255.0;
+                var green = 255.0;
+                if(percent>50){
+                    red = red*(1-((percent-50)*2.0/100.0))
+                }
+                else if(percent<50){
+                    green = green*(1-((50-percent)*2.0/100.0))
+                }
+                red = Math.round(red);
+                green = Math.round(green);
+                return "#"+("0"+red.toString(16)).slice(-2)+("0"+green.toString(16)).slice(-2)+"00"
+            }
+        </script>
 	</body>
 </html>
