@@ -174,6 +174,87 @@ header {
             font-size: 1.5em; }
             @media only screen and (max-width: 640px) {
               #tagline .opinions .sent-lists .sent-list li h4 {
-                font-size: 1.0em; } }
+                font-size: 1.0em; }             }
+#generator {
+  display: none;
+  padding: 0 2vw; }
+  #generator .title {
+    display: inline-block;
+    margin: 10px 0;
+    font-size: 2.0em;
+    font-family: "open_sansregular"; }
+    #generator .title .n {
+      font-family: "open_sansbold"; }
+    #generator .title .o {
+      font-family: "open_sansbold"; }
+  #generator .opinions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start; }
+    #generator .opinions .opinion {
+      max-width: 40vw;
+      margin-right: 2vw; }
+    #generator .opinions .source {
+      margin: 0 1vw; }
+      #generator .opinions .source .source-header {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: flex-start; }
+        #generator .opinions .source .source-header div {
+          display: table;
+          width: calc(100% - 100px);
+          min-height: 100px; }
+    #generator .opinions img {
+      height: 100px;
+      width: 100px; }
+    #generator .opinions .quote {
+      word-wrap: break-word;
+      display: table-cell;
+      vertical-align: middle;
+      font-size: 1.3em;
+      padding: 0 1vw;
+      font-family: "open_sanslight_italic"; }
+      @media only screen and (max-width: 640px) {
+        #generator .opinions .quote {
+          font-size: 1.5em; } }
+    #generator .opinions .summary {
+      font-size: 1.0em;
+      margin: 10px 0;
+      font-family: "open_sanslight"; }
+      @media only screen and (max-width: 640px) {
+        #generator .opinions .summary {
+          font-size: 0.8em; } }
+    #generator .opinions .sent-lists {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      #generator .opinions .sent-lists .positive {
+        color: #25db5e; }
+      #generator .opinions .sent-lists .neutral {
+        color: #42bcf4; }
+      #generator .opinions .sent-lists .negative {
+        color: #db2552; }
+      #generator .opinions .sent-lists .sent-list {
+        padding: 0;
+        list-style-type: none;
+        margin: 0; }
+        #generator .opinions .sent-lists .sent-list li {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          margin: 10px 0; }
+          #generator .opinions .sent-lists .sent-list li img {
+            height: 30px;
+            width: 30px; }
+          #generator .opinions .sent-lists .sent-list li h4 {
+            margin: 0 10px;
+            font-family: "open_sansregular";
+            font-size: 1.5em; }
+            @media only screen and (max-width: 640px) {
+              #generator .opinions .sent-lists .sent-list li h4 {
+                font-size: 1.0em; }             }
 
 /*# sourceMappingURL=style.css.map */

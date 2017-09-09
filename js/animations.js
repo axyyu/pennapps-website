@@ -9,4 +9,5 @@ function retrieveDataAni(){
 function openTaglineAni(){
     $("#results").fadeOut();
     $("#tagline").fadeIn();
+
 }

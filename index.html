@@ -38,6 +38,7 @@
                </div>
             </li>
         </ul>
+        <div class="chart" id="graph" data-percent="88"></div>
         <div id="tagline">
 
             <h1 class="title"><span class="n">Trump</span> ended the <span class="o">DACA</span> program.</h1>
@@ -78,11 +79,16 @@
                                                                         </div>
                </div>
         </div>
-        <div>
+    <div id="generator">
+
+    </div>
+
+        <div class="circleScore">
             25%
         </div>
         <script>
-            function percentToColor(percent){
+            function percentToColor(sentiment){
+                var percent = ((sentiment*100)+100)/2;
                 var red = 255.0;
                 var green = 255.0;
                 if(percent>50){
