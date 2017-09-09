@@ -20,66 +20,66 @@ header {
       header h1 {
         font-size: 3.0em; } }
 
-#results {
-  display: none;
+#wrapper .results {
+  display: block;
   overflow: auto;
   width: 100vw;
   list-style-type: none;
   padding: 0; }
-  #results li {
+  #wrapper .results li {
     margin: 10px 3vw;
     padding: 0  2vw;
     border-left: 5px solid black;
     max-height: 100px;
     overflow: hidden;
     transition: all 1s linear; }
-    #results li:hover {
+    #wrapper .results li:hover {
       max-height: 100vh; }
     @media only screen and (max-width: 640px) {
-      #results li {
+      #wrapper .results li {
         border: none; } }
-    #results li .headline {
+    #wrapper .results li .headline {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
       margin-bottom: 10px; }
-      #results li .headline h2 {
+      #wrapper .results li .headline h2 {
         font-size: 1.5em; }
         @media only screen and (max-width: 640px) {
-          #results li .headline h2 {
+          #wrapper .results li .headline h2 {
             font-size: 2.0em; } }
-      #results li .headline .title {
+      #wrapper .results li .headline .title {
         font-family: 'open_sansregular'; }
-        #results li .headline .title .n {
+        #wrapper .results li .headline .title .n {
           font-family: "open_sansbold"; }
-        #results li .headline .title .o {
+        #wrapper .results li .headline .title .o {
           font-family: "open_sansbold"; }
-    #results li .tag {
+    #wrapper .results li .tag {
       font-family: 'open_sanslight';
-      color: #666666; }
-    #results li .opinions {
+      color: #wrapper .666666; }
+    #wrapper .results li .opinions {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: flex-start; }
-      #results li .opinions .opinion {
+      #wrapper .results li .opinions .opinion {
         max-width: 40vw;
         margin-right: 2vw; }
-      #results li .opinions .source {
+      #wrapper .results li .opinions .source {
         margin: 0 1vw;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        #results li .opinions .source div {
+        #wrapper .results li .opinions .source div {
           display: table;
           width: calc(100% - 50px);
           min-height: 50px; }
-      #results li .opinions img {
+      #wrapper .results li .opinions img {
         height: 50px;
         width: 50px; }
-      #results li .opinions .quote {
+      #wrapper .results li .opinions .quote {
         word-wrap: break-word;
         display: table-cell;
         vertical-align: middle;
@@ -87,48 +87,48 @@ header {
         padding: 0 1vw;
         font-family: "open_sanslight_italic"; }
         @media only screen and (max-width: 640px) {
-          #results li .opinions .quote {
+          #wrapper .results li .opinions .quote {
             font-size: 1.5em; } }
-      #results li .opinions p, #results li .opinions a {
+      #wrapper .results li .opinions p, #wrapper .results li .opinions a {
         display: none; }
-    #results li:hover {
+    #wrapper .results li:hover {
       cursor: pointer; }
 
-#tagline {
-  display: none;
+#wrapper .tagline {
+  display: block;
   padding: 0 2vw; }
-  #tagline .title {
+  #wrapper .tagline .title {
     display: inline-block;
     margin: 10px 0;
     font-size: 2.0em;
     font-family: "open_sansregular"; }
-    #tagline .title .n {
+    #wrapper .tagline .title .n {
       font-family: "open_sansbold"; }
-    #tagline .title .o {
+    #wrapper .tagline .title .o {
       font-family: "open_sansbold"; }
-  #tagline .opinions {
+  #wrapper .tagline .opinions {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start; }
-    #tagline .opinions .opinion {
+    #wrapper .tagline .opinions .opinion {
       max-width: 40vw;
       margin-right: 2vw; }
-    #tagline .opinions .source {
+    #wrapper .tagline .opinions .source {
       margin: 0 1vw; }
-      #tagline .opinions .source .source-header {
+      #wrapper .tagline .opinions .source .source-header {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start; }
-        #tagline .opinions .source .source-header div {
+        #wrapper .tagline .opinions .source .source-header div {
           display: table;
           width: calc(100% - 100px);
           min-height: 100px; }
-    #tagline .opinions img {
+    #wrapper .tagline .opinions img {
       height: 100px;
       width: 100px; }
-    #tagline .opinions .quote {
+    #wrapper .tagline .opinions .quote {
       word-wrap: break-word;
       display: table-cell;
       vertical-align: middle;
@@ -136,125 +136,45 @@ header {
       padding: 0 1vw;
       font-family: "open_sanslight_italic"; }
       @media only screen and (max-width: 640px) {
-        #tagline .opinions .quote {
+        #wrapper .tagline .opinions .quote {
           font-size: 1.5em; } }
-    #tagline .opinions .summary {
+    #wrapper .tagline .opinions .summary {
       font-size: 1.0em;
       margin: 10px 0;
       font-family: "open_sanslight"; }
       @media only screen and (max-width: 640px) {
-        #tagline .opinions .summary {
+        #wrapper .tagline .opinions .summary {
           font-size: 0.8em; } }
-    #tagline .opinions .sent-lists {
+    #wrapper .tagline .opinions .sent-lists {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-around; }
-      #tagline .opinions .sent-lists .positive {
-        color: #25db5e; }
-      #tagline .opinions .sent-lists .neutral {
-        color: #42bcf4; }
-      #tagline .opinions .sent-lists .negative {
-        color: #db2552; }
-      #tagline .opinions .sent-lists .sent-list {
+      #wrapper .tagline .opinions .sent-lists .positive {
+        color: #wrapper .25db5e; }
+      #wrapper .tagline .opinions .sent-lists .neutral {
+        color: #wrapper .42bcf4; }
+      #wrapper .tagline .opinions .sent-lists .negative {
+        color: #wrapper .db2552; }
+      #wrapper .tagline .opinions .sent-lists .sent-list {
         padding: 0;
         list-style-type: none;
         margin: 0; }
-        #tagline .opinions .sent-lists .sent-list li {
+        #wrapper .tagline .opinions .sent-lists .sent-list li {
           display: flex;
           flex-direction: row;
           justify-content: center;
           margin: 10px 0; }
-          #tagline .opinions .sent-lists .sent-list li img {
+          #wrapper .tagline .opinions .sent-lists .sent-list li img {
             height: 30px;
             width: 30px; }
-          #tagline .opinions .sent-lists .sent-list li h4 {
+          #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
             margin: 0 10px;
             font-family: "open_sansregular";
             font-size: 1.5em; }
             @media only screen and (max-width: 640px) {
-              #tagline .opinions .sent-lists .sent-list li h4 {
+              #wrapper .tagline .opinions .sent-lists .sent-list li h4 {
                 font-size: 1.0em; }             }
-#generator {
-  display: none;
-  padding: 0 2vw; }
-  #generator .title {
-    display: inline-block;
-    margin: 10px 0;
-    font-size: 2.0em;
-    font-family: "open_sansregular"; }
-    #generator .title .n {
-      font-family: "open_sansbold"; }
-    #generator .title .o {
-      font-family: "open_sansbold"; }
-  #generator .opinions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start; }
-    #generator .opinions .opinion {
-      max-width: 40vw;
-      margin-right: 2vw; }
-    #generator .opinions .source {
-      margin: 0 1vw; }
-      #generator .opinions .source .source-header {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: flex-start; }
-        #generator .opinions .source .source-header div {
-          display: table;
-          width: calc(100% - 100px);
-          min-height: 100px; }
-    #generator .opinions img {
-      height: 100px;
-      width: 100px; }
-    #generator .opinions .quote {
-      word-wrap: break-word;
-      display: table-cell;
-      vertical-align: middle;
-      font-size: 1.3em;
-      padding: 0 1vw;
-      font-family: "open_sanslight_italic"; }
-      @media only screen and (max-width: 640px) {
-        #generator .opinions .quote {
-          font-size: 1.5em; } }
-    #generator .opinions .summary {
-      font-size: 1.0em;
-      margin: 10px 0;
-      font-family: "open_sanslight"; }
-      @media only screen and (max-width: 640px) {
-        #generator .opinions .summary {
-          font-size: 0.8em; } }
-    #generator .opinions .sent-lists {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: space-around; }
-      #generator .opinions .sent-lists .positive {
-        color: #25db5e; }
-      #generator .opinions .sent-lists .neutral {
-        color: #42bcf4; }
-      #generator .opinions .sent-lists .negative {
-        color: #db2552; }
-      #generator .opinions .sent-lists .sent-list {
-        padding: 0;
-        list-style-type: none;
-        margin: 0; }
-        #generator .opinions .sent-lists .sent-list li {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          margin: 10px 0; }
-          #generator .opinions .sent-lists .sent-list li img {
-            height: 30px;
-            width: 30px; }
-          #generator .opinions .sent-lists .sent-list li h4 {
-            margin: 0 10px;
-            font-family: "open_sansregular";
-            font-size: 1.5em; }
-            @media only screen and (max-width: 640px) {
-              #generator .opinions .sent-lists .sent-list li h4 {
-                font-size: 1.0em; }             }
+
 
 /*# sourceMappingURL=style.css.map */
