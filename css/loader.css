@@ -6,12 +6,12 @@
 .loading {
   display: none;
   margin: 0 auto;
-  margin-top: 30vh;
+  margin-top: 40vh;
   border-radius: 50%;
   width: 100px;
   height: 100px;
   border: 0.5rem solid #42bcf4;
-  border-top-color: #ffffff;
+  border-top-color: rgba(0, 0, 0, 0);
   animation: spin 2s infinite linear; }
   .loading--double {
     border-style: double;

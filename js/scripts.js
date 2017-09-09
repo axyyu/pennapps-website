@@ -23,12 +23,16 @@ function retrieveData(){
 		snapshot.forEach(function(child){
 			var str = "";
 			str+='<li class="result" onclick="openTagline(this)"><div class="headline"><h2 class="title">';
-			str+=child.key;
+			str+=child.key+'</h2>';
 			str+='</div><div class="opinions">';
 			child.forEach(function(article){
 				str+='<div class="source">';
-				str+='<img src="'+pictionary[article.child("source").val()]+'"/>';
-				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
+				var imgsrc = pictionary[article.child("source").val()];
+				if(imgsrc == null){
+					imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
+				}
+				str+='<img src="'+imgsrc+'"/>';
+				str+='<div><h3 class="title">'+article.child("title").val()+'</h3></div></div>';
 			});
 	        str+='</div></li>';
 	        r.append($(str));
