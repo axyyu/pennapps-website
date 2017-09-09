@@ -25,6 +25,7 @@ function retrieveData(){
 			str+=child.key;
 			str+='</div><div class="opinions">';
 			child.forEach(function(article){
+				str+='<div class="opinion">'
 				str+='<div class="source">';
 				str+='<img src="'+pictionary[article.child("source").val()]+'"/>';
 				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
