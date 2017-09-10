@@ -7,6 +7,10 @@ $break-large: 1000px;
 $positive: #25db5e;
 $negative:#db2552;
 
+$green:#42f483;
+$red :#f44141;
+$gray : "#adadad";
+
 html,body {
     background: lighten($primary-color,30%);
     margin:0;
@@ -162,42 +166,43 @@ header{
                     font-size:0.8em;
                 }
             }
-            .sent-lists{
+            .sent-list{
+                position: relative;
+                bottom: 0px;
                 display:flex;
                 flex-direction:row;
                 flex-wrap:wrap;
                 justify-content:space-around;
+
                 .positive{
-                    color:$positive;
-                }
-                .neutral{
-                    color:$primary-color;
-                }
-                .negative{
-                    color:$negative;
-                }
-            .sent-list{
-                padding:0;
-                list-style-type:none;
-                margin:0;
-                li{
+                        background: lighten($green,30%);
+                    }
+                    .negative{
+                        background: lighten($red,30%);
+                    }
+
+                div{
                     display:flex;
                     flex-direction:row;
                     justify-content:center;
                     margin: 10px 0;
+                    border-radius: 5px;
+                    padding: 5px;
+
+                    
 
                     img{
-                        height:30px;
-                        width:30px;
+                        height:20px;
+                        width:20px;
                     }
                     h4{
-                        margin: 0 10px;
-                        font-family:"open_sansregular";
-                        font-size:1.5em;
+                        margin-left: 5px;
+                        font-family:"open_sanslight";
+                        font-size:1.0em;
+                        line-height: 20px;
 
                         @include respond-to("mobile"){
                         font-size:1.0em;
-                }
 
                     }
                 }

@@ -9,7 +9,13 @@ var pictionary = {
 	"Huffington+Post+US":"img/huffpost.png"
 }
 
-function addSource(percentage, pictureUrl){
+function scrollTo(v) {
+	console.log(v);
+	$('html, body').animate({ scrollTop: $("#"+v).offset().top - 100 }, 'slow');
+    return false;
+}
+
+function addSource(percentage, pictureUrl, source){
 	console.log(percentage);
 	console.log(pictureUrl);
 		document.getElementById("graph");
@@ -23,6 +29,15 @@ function addSource(percentage, pictureUrl){
 		element.style.borderRadius = "25px";
 		element.style.left = "calc("+percentage.toString()+"% - 25px)";
 		element.style.right = "calc("+percentage.toString()+"% - 25px)";
+		var indices = [];
+		for(var i=0; i<source.length;i++) {
+		    if (source[i] === "+") indices.push(i);
+		}
+		indices.reverse();
+		for(var i=0; i<indices.length; i++){
+			source = source.substring(0, indices[i]) + "\\" + source.substring(indices[i]);
+		}
+		element.onclick = function(){scrollTo(source)};
 		document.getElementById('graph').appendChild(element);
 }
 
@@ -43,24 +58,52 @@ function retrieveData(){
 			str+='<div id="graph"><h3>Sentiment Spectrum</h3><p>Neutral news sources are not shown</p><div id="line"></div></div>';
 			str+='<div class="opinions">';
 			snapshot.forEach(function(article){
-				str+='<div class="source" ><div class="source-header">';
+				str+='<div class="source"><div class="source-header">';
 				var imgsrc = pictionary[article.child("source").val()];
+				var idv = article.child("source").val();
 				if(imgsrc == null){
+					idv = article.child("source").val().title;
 					imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
 				}
 				if(article.val().sentiment.score!=0){
-					graphsources.push([article.val().sentiment.score, imgsrc]);
+					graphsources.push([article.val().sentiment.score, imgsrc, idv]);
 				}
-				str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" /></a>';
+				str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" id="'+idv+'"/></a>';
 				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
 
 				str+='<h3 class="title">'+article.key+'</h3>';
-				str+='<p class="summary">'+article.child("summary").val()+'</p></div>';
+				str+='<p class="summary">'+article.child("summary").val()+'</p>';
+				
+				var entities = article.child("entities").val();
+				if(entities!=null && entities.length>2){
+					str+='<div class="sent-list">';
+					var length = entities.length;
+					if(entities>5){
+						length = 5;
+					}
+					for(i = 0; i<length; i++){
+						var sentiment = entities[i].sentiment.score;
+						if(sentiment>0){
+							str+='<div class="positive">';
+							str+='<img src="img/greenup.png"/>';
+							str+='<h4>'+entities[i].name+'</h4>';
+							str+='</div>';
+						}
+						else if(sentiment< 0){
+							str+='<div class="negative">';
+							str+='<img src="img/reddown.png"/>';
+							str+='<h4>'+entities[i].name+'</h4>';
+							str+='</div>';
+						}
+					}
+					str+='</div>';
+				}
+				str+='</div>';
 	        });
 	        str+='</div>';
 	        $("#tagline").append($(str));
 			graphsources.forEach(function(current){
-	        		addSource(Math.round((current[0]+1)*50), current[1]);
+	        		addSource(Math.round((current[0]+1)*50), current[1], current[2]);
 	        });
 		}
         else{
@@ -88,7 +131,7 @@ function populate(data, query){
 			var str = '';
 			str+='<h1 class="title">'+query+'</h1>';
 			str+='<div class="opinions">';
-    data.forEach(function(e){
+    		data.forEach(function(e){
         		str+='<div class="opinion" >';
 				str+='<div class="source" >';
 				var imgsrc = pictionary[e.source];

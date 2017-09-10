@@ -118,35 +118,34 @@ header {
       @media only screen and (max-width: 640px) {
         #tagline .opinions .summary {
           font-size: 0.8em; } }
-    #tagline .opinions .sent-lists {
+    #tagline .opinions .sent-list {
+      position: relative;
+      bottom: 0px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-around; }
-      #tagline .opinions .sent-lists .positive {
-        color: #25db5e; }
-      #tagline .opinions .sent-lists .neutral {
-        color: #42bcf4; }
-      #tagline .opinions .sent-lists .negative {
-        color: #db2552; }
-      #tagline .opinions .sent-lists .sent-list {
-        padding: 0;
-        list-style-type: none;
-        margin: 0; }
-        #tagline .opinions .sent-lists .sent-list li {
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          margin: 10px 0; }
-          #tagline .opinions .sent-lists .sent-list li img {
-            height: 30px;
-            width: 30px; }
-          #tagline .opinions .sent-lists .sent-list li h4 {
-            margin: 0 10px;
-            font-family: "open_sansregular";
-            font-size: 1.5em; }
-            @media only screen and (max-width: 640px) {
-              #tagline .opinions .sent-lists .sent-list li h4 {
-                font-size: 1.0em; } }
+      #tagline .opinions .sent-list .positive {
+        background: #d3fce2; }
+      #tagline .opinions .sent-list .negative {
+        background: #fcd2d2; }
+      #tagline .opinions .sent-list div {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin: 10px 0;
+        border-radius: 5px;
+        padding: 5px; }
+        #tagline .opinions .sent-list div img {
+          height: 20px;
+          width: 20px; }
+        #tagline .opinions .sent-list div h4 {
+          margin-left: 5px;
+          font-family: "open_sanslight";
+          font-size: 1.0em;
+          line-height: 20px; }
+          @media only screen and (max-width: 640px) {
+            #tagline .opinions .sent-list div h4 {
+              font-size: 1.0em; } }
 
 /*# sourceMappingURL=tag.css.map */

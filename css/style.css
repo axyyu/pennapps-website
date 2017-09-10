@@ -48,8 +48,7 @@ header {
     padding: 2vh  2vw;
     overflow: hidden;
     background: #ffffff;
-    border-radius: 5px;
-    transition: all 0.2s ease; }
+    border-radius: 5px; }
     @media only screen and (max-width: 640px) {
       #results li {
         border: none; } }
