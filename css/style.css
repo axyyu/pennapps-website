@@ -35,6 +35,28 @@ header {
   header .header-button {
     margin: 0 10px; }
 
+#search_bar {
+  width: 0%;
+  height: 0px;
+  border-radius: 0px;
+  border-width: 0px;
+  padding: 0 0;
+    -webkit-transition: width 0.4s, border-width 0.4s, ease-in-out;
+    transition: width 0.4s, border-width 0.4s, ease-in-out;
+    
+
+    
+}
+
+#search_bar:focus {
+  width: 75%;
+  display: block;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 2px;
+    border: 1px #000 solid;
+}
+
 #results {
   margin-top: 70px;
   display: none;

@@ -89,3 +89,32 @@ function retrieveData(){
 function openTagline(v){
 	window.location = "tagline.html?tag="+$(v).find(".headline").text();
 }
+window.onkeyup = function(e) {
+   //console.log(e);
+   if(e.code=="Enter"&& $("#search_bar").is(':focus')&&!(document.getElementById("search_bar").value=="")){
+   	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
+   		
+
+   }
+}
+$( "#search_button" ).click(function() {
+  if(document.getElementById("search_bar").value==""|| !$("#search_bar").is(':focus'))
+  {
+  		
+  		document.getElementById("search_bar").hidden=false;
+  		document.getElementById("search_bar").focus();
+  }
+  else
+  {
+  	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
+  }
+
+});
+
+/*$("#search_bar").focusout(function() {
+	
+		document.getElementById("search_bar").hidden=true;
+	
+
+});
+*/
