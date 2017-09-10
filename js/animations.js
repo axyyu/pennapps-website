@@ -1,5 +1,5 @@
 function startAni(){
-    $("header").fadeIn();
+    // $("header").fadeIn();
     $(".loading").fadeIn();
 }
 function retrieveDataAni(){
