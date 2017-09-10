@@ -12,7 +12,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" defer></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
     <script src="js/animations.js" defer></script>
-    <script src="js/scripts.js" defer></script>
     <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 	<link rel="stylesheet" type="text/css" href="hover-min.css">
 </head>
@@ -23,6 +22,7 @@
 	<div style="width:100%; height:100px; margin-top:100px;" id="graph">
 		<div id="line" style="position:relative;top:45px;left:0;right:0;width:100%;height:10px;background-color:#FF0000;border-radius:5px;background: linear-gradient(to right, red , yellow, green);"></div>
 	</div>
+	<h3>*Sources with zero sentiment not pictured.</h3>
 </center>
 <script>
 	var pictionary = {
@@ -53,11 +53,20 @@
 	if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
 		return decodeURIComponent(name[1]);
 	}
-	get(topic);
 	firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
 	var database = firebase.database();
-	var ref = database.ref('topics/'+get(topic));
-
+	var ref = database.ref('topics').child(get("topic"));
+	ref.once('value', function(snapshot){
+		snapshot.forEach(function(article){
+			var imgsrc = pictionary[article.child("source").val()];
+			if(imgsrc == null){
+				imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
+			}
+			if(article.val().sentiment.score!=0)
+				addSource(Math.round((article.val().sentiment.score+1)*50), imgsrc);
+		});
+	});
+	console.log(get("entity"))
 </script>
 </body>
 </html>
