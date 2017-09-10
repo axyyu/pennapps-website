@@ -13,42 +13,24 @@ var vars = query.split("=")[1];
 vars = vars.replace("%20"," ")
 console.log(vars);
 firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
-	var database = firebase.database();
+var database = firebase.database();
 	var topRef = database.ref('topics/'+vars+'');
 	topRef.once('value', function(snapshot){
 		var str = '';
-			str+='<h1 class="title">'+snapshot.key+'</h1>';
-			str+='<div class="opinions">';
+		str+='<h1 class="title">'+snapshot.key+'</h1>';
+		str+='<iframe src="graph.html?q='+snapshot.key+'"></iframe>';
+		str+='<div class="opinions">';
 		snapshot.forEach(function(article){
-			
-			//child.forEach(function(article){
-				str+='<div class="opinion" >';
-				str+='<div class="source" >';
-				var imgsrc = pictionary[article.child("source").val()];
-				if(imgsrc == null){
-					imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
-				}
-				str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" /></a>';
-				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
-				str+='<p><span style="font-weight: bold;">'+article.key+'</span></p>';
-				str+='<p>'+article.child("summary").val()+'</p></div>';
-			//});
+			str+='<div class="source" ><div class="source-header">';
+			var imgsrc = pictionary[article.child("source").val()];
+			if(imgsrc == null){
+				imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
+			}
+			str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" /></a>';
+			str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
+			str+='<h3 class="title">'+article.key+'</h3>';
+			str+='<p class="summary">'+article.child("summary").val()+'</p></div>';
         });
+        str+='</div>';
         $("#tagline").append($(str));
 	});
-
-
-	/*<div class="tagline" hidden>
-
-            <h1 class="title"><span class="n">Trump</span> ended the <span class="o">DACA</span> program.</h1>
-            <div class="opinions">
-                    <div class="opinion">
-                        <div class="source">
-                            <div class="source-header">
-                            <img src="https://chococoabaking.com/wp-content/uploads/2012/01/CNN-Logo-300x300.jpg"/>
-                            <div>
-                                <h3 class="quote">"Trump shouldn't have ended DACA"</h3>
-                            </div>
-                        </div>
-                        <p> TITLE </p>
-                        <p class="summary">Trump da lump is a bump</p>*/

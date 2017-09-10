@@ -39,7 +39,6 @@ function retrieveData(){
 			var neutral = 0;
 			var negative = 0;
 			child.forEach(function(article){
-				str+='<div class="opinion">'
 				str+='<div class="source">';
 				var imgsrc = pictionary[article.child("source").val()];
 				if(imgsrc == null){
@@ -73,7 +72,10 @@ function retrieveData(){
 			        backgroundColor: [green, gray, red],
 			        borderWidth: ["20px"]
 			    }],
-			    
+			    options: [{
+			    	enabled:true,
+			    	position:"nearist",
+			    }]
 			};
 
 	        var ctx = $("#"+child.key.hashCode());
@@ -87,9 +89,5 @@ function retrieveData(){
 	retrieveDataAni();
 }
 function openTagline(v){
-<<<<<<< HEAD
 	window.location = "tagline.html?tag="+$(v).find(".headline").text();
-=======
-	window.location = "tagline.html?tag="+ $(v).find("canvas").attr("id");
->>>>>>> e1b8a2f6e0e03bac1936c0f76167e98b88a2db7b
 }
