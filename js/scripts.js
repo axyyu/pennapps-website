@@ -9,11 +9,20 @@ var pictionary = {
 	"NPR":"img/npr.png",
 	"Huffington+Post+US":"img/huffpost.png"
 }
+var green="#42f483";
+var red ="#f44141";
+var gray = "#adadad";
 
 $(document).ready(function(){
     startAni();
     retrieveData();
 });
+String.prototype.hashCode = function() {
+  var hash = 5381, i = this.length
+  while(i)
+    hash = (hash * 33) ^ this.charCodeAt(--i)
+  return hash >>> 0;
+}
 function retrieveData(){
 	firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
 	var database = firebase.database();
@@ -23,8 +32,12 @@ function retrieveData(){
 		snapshot.forEach(function(child){
 			var str = "";
 			str+='<li class="result" onclick="openTagline(this)"><div class="headline"><h2 class="title">';
-			str+=child.key+'</h2>';
+			str+=child.key+'</h2><canvas id="'+child.key.hashCode()+'"></canvas>';
 			str+='</div><div class="opinions">';
+
+			var positive = 0;
+			var neutral = 0;
+			var negative = 0;
 			child.forEach(function(article){
 				str+='<div class="source">';
 				var imgsrc = pictionary[article.child("source").val()];
@@ -33,14 +46,45 @@ function retrieveData(){
 				}
 				str+='<img src="'+imgsrc+'"/>';
 				str+='<div><h3 class="title">'+article.child("title").val()+'</h3></div></div>';
+
+				var sentiment = article.child("sentiment").val().score;
+				if(sentiment>0){
+					positive++;
+				}
+				else if(sentiment< -0.25){
+					negative++;
+				}
+				else{
+					neutral++;
+				}
 			});
 	        str+='</div></li>';
 	        r.append($(str));
+
+	        var data = {
+	        	labels: [
+			        'Positive',
+			        'Neutral',
+			        'Negative'
+			    ],
+			    datasets: [{
+			        data: [positive, neutral, negative],
+			        backgroundColor: [green, gray, red],
+			        borderWidth: ["20px"]
+			    }],
+			    
+			};
+
+	        var ctx = $("#"+child.key.hashCode());
+	        var myDoughnutChart = new Chart(ctx, {
+			    type: 'doughnut',
+			    data: data
+			});
         });
         
 	});
 	retrieveDataAni();
 }
 function openTagline(v){
-	//window.location = "tagline.html?tag="+$(v).find(".title").text();
+	window.location = "tagline.html?tag="+ $(v).find("canvas").attr("id");
 }

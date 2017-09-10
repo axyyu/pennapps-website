@@ -20,7 +20,7 @@ header {
     text-decoration: none; }
   header h1 {
     color: #42bcf4;
-    font-family: 'open_sanssemibold';
+    font-family: 'open_sansregular';
     font-size: 2.0em;
     text-decoration: none; }
     @media only screen and (max-width: 640px) {
@@ -57,19 +57,25 @@ header {
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
-      margin-bottom: 10px; }
+      margin-bottom: 20px;
+      padding: 10px;
+      border-bottom: 2px solid #42bcf4; }
+      #results li .headline canvas {
+        height: 35px !important;
+        width: 35px !important;
+        margin: 0 10px; }
       #results li .headline h2 {
         font-size: 1.6em; }
         @media only screen and (max-width: 640px) {
           #results li .headline h2 {
             font-size: 2.0em; } }
       #results li .headline .title {
-        font-family: 'open_sansbold'; }
+        font-family: 'open_sansregular'; }
     #results li .opinions {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-start; }
+      justify-content: flex-between; }
       #results li .opinions .source {
         margin: 0 1vw;
         width: 40vw;
@@ -79,6 +85,9 @@ header {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: flex-start; }
+        @media only screen and (max-width: 640px) {
+          #results li .opinions .source {
+            width: 100%; } }
         #results li .opinions .source div {
           display: table;
           width: calc(100% - 50px);
@@ -92,7 +101,7 @@ header {
         vertical-align: middle;
         font-size: 1.3em;
         padding: 0 1vw;
-        font-family: "open_sansregular"; }
+        font-family: "open_sanslight"; }
         @media only screen and (max-width: 640px) {
           #results li .opinions .title {
             font-size: 1.5em; } }

@@ -9,6 +9,7 @@
         <link rel="stylesheet" type="text/css" href="css/loader.css">
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" defer></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js" defer></script>
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
         <script src="js/animations.js" defer></script>
         <script src="js/scripts.js" defer></script>
@@ -29,71 +30,5 @@
                 
             </ul>
         </div>
-        <!--<div class="chart" id="graph" data-percent="88"></div>-->
-        <!--<div class="tagline" hidden>
-
-            <h1 class="title"><span class="n">Trump</span> ended the <span class="o">DACA</span> program.</h1>
-            <div class="opinions">
-                    <div class="opinion">
-                        <div class="source">
-                            <div class="source-header">
-                            <img src="https://chococoabaking.com/wp-content/uploads/2012/01/CNN-Logo-300x300.jpg"/>
-                            <div>
-                                <h3 class="quote">"Trump shouldn't have ended DACA"</h3>
-                            </div>
-                        </div>
-                        <p> TITLE </p>
-                        <p class="summary">Trump da lump is a bump</p>-->
-                        <div id="emojis" hidden class="sent-lists">
-                            <ul class="sent-list positive">
-                                <li>
-                                    <img src="img/smile.png"/>
-                                    <h4>DACA</h4>
-                                </li>
-                            </ul>
-                            <ul class="sent-list neutral">
-                                <li>
-                                    <img src="img/neutral.png"/>
-                                    <h4>DACA</h4>
-                                </li>
-                            </ul>
-
-                            <ul class="sent-list negative">
-                                <li>
-                                    <img src="img/frown.png"/>
-                                    <h4>DACA</h4>
-                                </li>
-                            </ul>
-
-                        </div>
-
-                       <!-- </div>
-                                                                        </div>
-               </div>
-        </div> -->
-        </div>
-    <div id="generator">
-
-    </div>
-
-      <!--  <div class="circleScore">
-            25%
-        </div>-->
-        <script>
-            function percentToColor(sentiment){
-                var percent = ((sentiment*100)+100)/2;
-                var red = 255.0;
-                var green = 255.0;
-                if(percent>50){
-                    red = red*(1-((percent-50)*2.0/100.0))
-                }
-                else if(percent<50){
-                    green = green*(1-((50-percent)*2.0/100.0))
-                }
-                red = Math.round(red);
-                green = Math.round(green);
-                return "#"+("0"+red.toString(16)).slice(-2)+("0"+green.toString(16)).slice(-2)+"00"
-            }
-        </script>
 	</body>
 </html>
