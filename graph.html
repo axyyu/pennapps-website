@@ -35,20 +35,6 @@
 		"NPR":"img/npr.png",
 		"Huffington+Post+US":"img/huffpost.png"
 	}
-	function addSource(percentage, pictureUrl){
-		document.getElementById("graph");
-		var element = document.createElement('IMG');
-		element.src = pictureUrl;
-		element.className = "hvr-bob";
-		element.style.width = "50px";
-		element.style.height = "50px";
-		element.style.position = "absolute";
-		element.style.marginTop = "15px";
-		element.style.borderRadius = "25px";
-		element.style.left = "calc("+percentage.toString()+"% - 25px)";
-		element.style.right = "calc("+percentage.toString()+"% - 25px)";
-		document.getElementById('graph').appendChild(element);
-	}
 	function get(name){
 	if(name=(new RegExp('[?&]'+encodeURIComponent(name)+'=([^&]*)')).exec(location.search))
 		return decodeURIComponent(name[1]);
