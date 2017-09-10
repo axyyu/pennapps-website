@@ -3,6 +3,8 @@ function startAni(){
     $(".loading").fadeIn();
 }
 function retrieveDataAni(){
-    $(".loading").fadeOut();
-    $("#results").fadeIn();
+    $(".loading").fadeOut(function(){
+        $("#results").fadeIn();
+        $("#tagline").fadeIn();
+    });
 }

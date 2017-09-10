@@ -39,7 +39,6 @@ function retrieveData(){
 			var neutral = 0;
 			var negative = 0;
 			child.forEach(function(article){
-				str+='<div class="opinion">'
 				str+='<div class="source">';
 				var imgsrc = pictionary[article.child("source").val()];
 				if(imgsrc == null){
@@ -73,7 +72,10 @@ function retrieveData(){
 			        backgroundColor: [green, gray, red],
 			        borderWidth: ["20px"]
 			    }],
-			    
+			    options: [{
+			    	enabled:true,
+			    	position:"nearist",
+			    }]
 			};
 
 	        var ctx = $("#"+child.key.hashCode());

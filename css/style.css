@@ -97,7 +97,7 @@ header {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: flex-between; }
+      justify-content: space-between; }
       #results li .opinions .source {
         margin: 0 1vw;
         width: 40vw;
