@@ -87,9 +87,5 @@ function retrieveData(){
 	retrieveDataAni();
 }
 function openTagline(v){
-<<<<<<< HEAD
 	window.location = "tagline.html?tag="+$(v).find(".headline").text();
-=======
-	window.location = "tagline.html?tag="+ $(v).find("canvas").attr("id");
->>>>>>> e1b8a2f6e0e03bac1936c0f76167e98b88a2db7b
 }
