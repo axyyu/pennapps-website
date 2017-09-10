@@ -46,6 +46,8 @@ header {
     font-size: 1em;
     padding: 0 5px;
     transition: all 0.2s ease; }
+    header #search_bar:focus {
+    outline: none; }
 
 #results {
   margin-top: 70px;

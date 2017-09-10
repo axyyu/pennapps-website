@@ -70,6 +70,7 @@ function processData(){
 						var number = entities[i].mentions.length;
 						data[key][name].x += number;
 						data[key][name].y = (sentiment+data[key][name].y)/2;
+                        data[key][name].z = entities[i].name;
 					}
 				}
 			});
@@ -134,7 +135,17 @@ function createChart(){
             }]
         },
         tooltips: {
-            custom: function(tooltipModel) {
+           //custom: function(tooltipModel) {
+            callbacks: {
+                label: function(tooltipItem,data){
+                    var d = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]; 
+
+                    return d.z+", "+d.x+", "+d.y; 
+
+                    console.log(data);
+                    console.log(tooltipItem);
+                }
+            }
              //    var tooltip = $('#entity');
 
              //    console.log(tooltipModel.yAlign);
@@ -229,7 +240,7 @@ function createChart(){
                 // tooltipEl.style.fontSize = tooltipModel.fontSize;
                 // tooltipEl.style.fontStyle = tooltipModel._fontStyle;
                 // tooltipEl.style.padding = tooltipModel.yPadding + 'px ' + tooltipModel.xPadding + 'px';
-            }
+            //}
         }
     }
 });
