@@ -43,5 +43,5 @@ function retrieveData(){
 	retrieveDataAni();
 }
 function openTagline(v){
-	//window.location = "tagline.html?tag="+$(v).find(".title").text();
+	window.location = "tagline.html?tag="+$(v).find(".headline").text();
 }

@@ -1,15 +1,22 @@
 html, body {
-  background: #ffffff;
+  background: #d3effc;
   margin: 0; }
 
 h1, h2, h3, h4, h5, p {
   margin: 0; }
 
 header {
-  display: none;
+  text-align: center;
+  position: fixed;
+  width: calc(100vw - 40px);
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
   border-bottom: 2px solid #f2f2f2;
   padding: 10px 20px; }
   header a {
+    color: #42bcf4 !important;
     text-decoration: none; }
   header h1 {
     color: #42bcf4;
@@ -19,15 +26,33 @@ header {
     @media only screen and (max-width: 640px) {
       header h1 {
         font-size: 3.0em; } }
+  header .header-buttons {
+    font-family: 'open_sanslight';
+    display: flex;
+    flex-direction: row;
+    line-height: 44px;
+    font-size: 1.5em; }
+  header .header-button {
+    margin: 0 10px; }
+
+
 
 
 #tagline {
   display: block;
+  margin-top: 70px;
+  overflow: auto;
+  min-height: 100vh;
+  width: 100%;
+  list-style-type: none;
   padding: 0 2vw; }
   #tagline .title {
     display: inline-block;
-    margin: 10px 0;
+    margin: 0 0;
     font-size: 2.0em;
+    background: #ffffff;
+    padding-bottom: 2vh;
+    padding-right: 71.9vw;
     font-family: "open_sansregular"; }
     #tagline .title .n {
       font-family: "open_sansbold"; }
@@ -37,12 +62,17 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    background: #ffffff;
     justify-content: flex-start; }
     #tagline .opinions .opinion {
       max-width: 40vw;
-      margin-right: 2vw; }
+      margin-right: 2vw;
+      
+      padding: 2vh 0; }
     #tagline .opinions .source {
-      margin: 0 1vw; }
+      margin: 0 1vw;
+      padding: 1vh 0;
+      display: flex; }
       #tagline .opinions .source .source-header {
         display: flex;
         flex-direction: row;
@@ -60,7 +90,7 @@ header {
       display: table-cell;
       vertical-align: middle;
       font-size: 1.3em;
-      padding: 0 1vw;
+      padding: 0 2vw;
       font-family: "open_sanslight_italic"; }
       @media only screen and (max-width: 640px) {
         #tagline .opinions .quote {

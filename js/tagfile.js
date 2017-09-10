@@ -10,6 +10,7 @@ var pictionary = {
 }
 var query = window.location.search.substring(1);
 var vars = query.split("=")[1];
+vars = vars.replace("%20"," ")
 console.log(vars);
 firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
 	var database = firebase.database();
@@ -23,9 +24,13 @@ firebase.initializeApp({databaseURL: "https://debrief-v2.firebaseio.com"});
 			//child.forEach(function(article){
 				str+='<div class="opinion" >';
 				str+='<div class="source" >';
-				str+='<img src="'+pictionary[article.child("source").val()]+'"/>';
+				var imgsrc = pictionary[article.child("source").val()];
+				if(imgsrc == null){
+					imgsrc = pictionary[article.child("source").val().title.toUpperCase()];
+				}
+				str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" /></a>';
 				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
-				str+='<p>'+article.key+'</p>';
+				str+='<p><span style="font-weight: bold;">'+article.key+'</span></p>';
 				str+='<p>'+article.child("summary").val()+'</p></div>';
 			//});
         });
