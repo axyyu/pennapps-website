@@ -1,0 +1,99 @@
+html, body {
+  background: #d3effc;
+  margin: 0; }
+
+h1, h2, h3, h4, h5, p {
+  margin: 0; }
+
+header {
+  text-align: center;
+  position: fixed;
+  width: calc(100vw - 40px);
+  top: 0px;
+  display: flex;
+  z-index: 1000;
+  justify-content: space-between;
+  background: #ffffff;
+  border-bottom: 2px solid #f2f2f2;
+  padding: 10px 20px; }
+  header a {
+    color: #42bcf4 !important;
+    text-decoration: none; }
+  header h1 {
+    color: #42bcf4;
+    font-family: 'open_sansregular';
+    font-size: 2.0em;
+    text-decoration: none; }
+    @media only screen and (max-width: 640px) {
+      header h1 {
+        font-size: 3.0em; } }
+  header .header-buttons {
+    font-family: 'open_sanslight';
+    display: flex;
+    flex-direction: row;
+    line-height: 44px;
+    font-size: 1.5em; }
+  header .header-button {
+    margin: 0 10px; }
+    header .header-button:hover {
+      cursor: pointer; }
+  header #search_bar {
+    font-family: 'open_sanslight';
+    width: 0px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #42bcf4;
+    color: #42bcf4;
+    font-size: 1em;
+    padding: 0 5px;
+    transition: all 0.2s ease; }
+
+#wrapper {
+  margin-top: 70px;
+  display: none;
+  width: 100%;
+  padding: 0;
+    /*#newsoptions{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-top: 10px;
+        padding: 0 10vw;
+
+        img{
+            height: 100px;
+            width: 100px;
+
+            &:hover{
+                cursor:pointer;
+            }
+
+            &.off{
+                filter: grayscale(100%);
+            }
+        }
+    }*/ }
+  #wrapper h1 {
+    width: 100%;
+    margin: 10px auto;
+    text-align: center;
+    font-family: 'open_sansregular';
+    font-size: 2em; }
+  #wrapper #graph-info {
+    text-align: center;
+    font-size: 1em;
+    margin: 10px;
+    padding: 0 10vw;
+    font-family: 'open_sanslight'; }
+    #wrapper #graph-info h4:hover {
+      cursor: pointer; }
+  #wrapper #graphwrapper {
+    margin: 10px auto;
+    position: relative;
+    height: 60vh;
+    width: 80vw;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 5px; }
+
+/*# sourceMappingURL=graph.css.map */

@@ -91,27 +91,44 @@ function retrieveData(){
 function openTagline(v){
 	window.location = "tagline.html?tag="+$(v).find(".headline").text();
 }
-window.onkeyup = function(e) {
-   //console.log(e);
-   if(e.code=="Enter"&& $("#search_bar").is(':focus')&&!(document.getElementById("search_bar").value=="")){
-   	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
+function toggleSearch(){
+	$("#search_button").fadeOut(function(){
+		$("#search_bar").fadeIn();
+		$("#search_bar").animate({
+		"width":"200px",
+		},1000,function(){
+			$("#search_bar").focus();
+			$("#search_bar").keypress(function(e) {
+    			if(e.which == 13) {
+        			window.location = "tagline.html?tag="+$("#search_bar").val();
+    			}
+			});
+		});
+	});
+}
+// window.onkeyup = function(e) {
+//    //console.log(e);
+//    if(e.code=="Enter"&& $("#search_bar").is(':focus')&&!(document.getElementById("search_bar").value=="")){
+//    	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
    		
 
-   }
-}
-$( "#search_button" ).click(function() {
-  if(document.getElementById("search_bar").value==""|| !$("#search_bar").is(':focus'))
-  {
-  		
-  		document.getElementById("search_bar").hidden=false;
-  		document.getElementById("search_bar").focus();
-  }
-  else
-  {
-  	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
-  }
+//    }
+// }
+// $( "#search_button" ).click(function() {
+	
 
-});
+//   if(document.getElementById("search_bar").value==""|| !$("#search_bar").is(':focus'))
+//   {
+  		
+//   		document.getElementById("search_bar").hidden=false;
+//   		document.getElementById("search_bar").focus();
+//   }
+//   else
+//   {
+//   	window.location = "tagline.html?tag="+document.getElementById("search_bar").value;
+//   }
+
+// });
 
 /*$("#search_bar").focusout(function() {
 	

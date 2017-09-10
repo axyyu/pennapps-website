@@ -34,28 +34,18 @@ header {
     font-size: 1.5em; }
   header .header-button {
     margin: 0 10px; }
-
-#search_bar {
-  width: 0%;
-  height: 0px;
-  border-radius: 0px;
-  border-width: 0px;
-  padding: 0 0;
-    -webkit-transition: width 0.4s, border-width 0.4s, ease-in-out;
-    transition: width 0.4s, border-width 0.4s, ease-in-out;
-    
-
-    
-}
-
-#search_bar:focus {
-  width: 75%;
-  display: block;
-  height: 50px;
-  border-radius: 15px;
-  border-width: 2px;
-    border: 1px #000 solid;
-}
+    header .header-button:hover {
+      cursor: pointer; }
+  header #search_bar {
+    font-family: 'open_sanslight';
+    width: 0px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid #42bcf4;
+    color: #42bcf4;
+    font-size: 1em;
+    padding: 0 5px;
+    transition: all 0.2s ease; }
 
 #results {
   margin-top: 70px;

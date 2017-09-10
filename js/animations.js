@@ -6,5 +6,6 @@ function retrieveDataAni(){
     $(".loading").fadeOut(function(){
         $("#results").fadeIn();
         $("#tagline").fadeIn();
+        $("#wrapper").fadeIn();
     });
 }

@@ -14,7 +14,21 @@ function scrollTo(v) {
 	$('html, body').animate({ scrollTop: $("#"+v).offset().top - 100 }, 'slow');
     return false;
 }
-
+function toggleSearch(){
+	$("#search_button").fadeOut(function(){
+		$("#search_bar").fadeIn();
+		$("#search_bar").animate({
+		"width":"200px",
+		},1000,function(){
+			$("#search_bar").focus();
+			$("#search_bar").keypress(function(e) {
+    			if(e.which == 13) {
+        			window.location = "tagline.html?tag="+$("#search_bar").val();
+    			}
+			});
+		});
+	});
+}
 function addSource(percentage, pictureUrl, source){
 	console.log(percentage);
 	console.log(pictureUrl);

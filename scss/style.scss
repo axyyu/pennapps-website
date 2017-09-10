@@ -55,6 +55,20 @@ header{
     }
     .header-button{
         margin: 0 10px;
+        &:hover{
+            cursor:pointer;
+        }
+    }
+    #search_bar {
+        font-family:'open_sanslight';
+        width: 0px;
+        height: 40px;
+        border-radius: 20px;
+        border: 2px solid $primary-color;
+        color: $primary-color;
+        font-size: 1em;
+        padding: 0 5px;
+        transition: all 0.2s ease;
     }
 }
 #results{
