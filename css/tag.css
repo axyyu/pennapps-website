@@ -37,6 +37,7 @@ header {
     margin: 0 10px; }
 
 #tagline {
+  display: none;
   margin-top: 70px;
   overflow: auto;
   min-height: 100vh;

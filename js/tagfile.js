@@ -26,7 +26,7 @@ function addSource(percentage, pictureUrl){
 		document.getElementById('graph').appendChild(element);
 }
 
-$(document).ready(function(){
+function retrieveData(){
 	var query = window.location.search.substring(1);
 	var vars = query.split("=")[1];
 	vars = vars.replace("%20"," ")
@@ -35,8 +35,10 @@ $(document).ready(function(){
 	var database = firebase.database();
 		var topRef = database.ref('topics/'+vars+'');
 		topRef.once('value', function(snapshot){
+			if(snapshot.val()!=null){
 			var graphsources = [];
 			var str = '';
+
 			str+='<h1 class="title">'+snapshot.key+'</h1>';
 			str+='<div id="graph"><h3>Sentiment Spectrum</h3><p>Neutral news sources are not shown</p><div id="line"></div></div>';
 			str+='<div class="opinions">';
@@ -51,14 +53,59 @@ $(document).ready(function(){
 				}
 				str+='<a href="'+article.child("url").val()+'"><img src="'+imgsrc+'" /></a>';
 				str+='<div><h3 class="quote">"'+article.child("quote").val()+'"</h3></div></div>';
+
 				str+='<h3 class="title">'+article.key+'</h3>';
 				str+='<p class="summary">'+article.child("summary").val()+'</p></div>';
 	        });
 	        str+='</div>';
 	        $("#tagline").append($(str));
-
-	        graphsources.forEach(function(current){
-	        	addSource(Math.round((current[0]+1)*50), current[1]);
+			graphsources.forEach(function(current){
+	        		addSource(Math.round((current[0]+1)*50), current[1]);
 	        });
-		});
+		}
+        else{
+        	search(""+vars);
+        }
+	});
+	retrieveDataAni();
+}
+
+function search(query){
+    startAni();
+	var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
+            populate(JSON.parse(xmlHttp.responseText), query);
+        }
+        else{
+            console.log(xmlHttp)
+        }
+    }
+    xmlHttp.open("GET", "https://debriefserver.cutlass21.hasura-app.io/search?q="+query, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+function populate(data, query){
+			var str = '';
+			str+='<h1 class="title">'+query+'</h1>';
+			str+='<div class="opinions">';
+    data.forEach(function(e){
+        		str+='<div class="opinion" >';
+				str+='<div class="source" >';
+				var imgsrc = pictionary[e.source];
+				if(imgsrc == null){
+					imgsrc = pictionary[e.source.title.toUpperCase()];
+				}
+				str+='<a href="'+e.url+'"><img src="'+imgsrc+'" /></a>';
+				str+='<div><h3 class="quote">"'+e.quote+'"</h3></div></div>';
+				str+='<p><span style="font-weight: bold;">'+e.title+'</span></p>';
+				str+='<p>'+e.summary+'</p></div>';
+    });
+    $("#tagline").append($(str));
+console.log(data);
+    retrieveDataAni();
+}
+
+$(document).ready(function(){
+    startAni();
+    retrieveData();
 });
