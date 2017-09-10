@@ -1,25 +1,77 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>
-		
-	</title>
+	<meta charset="utf-8" />
+    <title>debrief</title>
+
+    <link rel="stylesheet" type="text/css" href="fonts/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/loader.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" defer></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="js/animations.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/4.3.0/firebase.js"></script>
 </head>
 <body>
-
+    <header>
+        <a href="index.html"><h1>debrief</h1></a>
+        <div class="header-buttons">
+            <a class="header-button" href="index.html">feed</a>
+            <a class="header-button" href="index.html">search</a>
+        </div>
+    </header>
+    <div class="loading">
+    </div>
+    <div id = "wrapper">
+        <ul id="results">
+            
+        </ul>
+    </div>
 <script>
+var pictionary = {
+    "CBS":"img/cbs.png",
+    "MSNBC":"img/msnbc.png",
+    "Breitbart":"img/bb.png",
+    "Fox+News":"img/fox.png",
+    "ABC":"img/abc.png",
+    "CNN":"img/cnn.png",
+    "NPR":"img/npr.png",
+    "Huffington+Post+US":"img/huffpost.png"
+}
 function search(query){
+    startAni();
 	var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() { 
         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-            populate(JSON.parse(xmlHttp.responseText));
+            populate(JSON.parse(xmlHttp.responseText), query);
+        }
+        else{
+            console.log(xmlHttp.status)
         }
     }
     xmlHttp.open("GET", "https://debriefserver.cutlass21.hasura-app.io/search?q="+query, true); // true for asynchronous 
     xmlHttp.send(null);
 }
-function populate(data){
-
+function populate(data, query){
+    data.forEach(function(e){
+        console.log(e);
+        var r = $("#results");
+        var str = "";
+        str+='<li class="result" onclick="openTagline(this)"><div class="headline"><h2 class="title">';
+        str+=query+'</h2>';
+        str+='</div><div class="opinions">';
+        str+='<div class="source">';
+        var imgsrc = pictionary[e.source];
+        if(imgsrc == null){
+            imgsrc = pictionary[e.source.title.toUpperCase()];
+        }
+        str+='<img src="'+imgsrc+'"/>';
+        str+='<div><h3 class="title">'+e.title()+'</h3></div></div>';
+        str+='</div></li>';
+        r.append($(str));
+    });
+    retrieveDataAni();
 }
 </script>
 </body>
